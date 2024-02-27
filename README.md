@@ -1,7 +1,7 @@
 # Pycrosoft-Paint
 
 ## Instalation
-Use pip to install pygame
+Use pip to install pygame if you plan to run the program from the source code.
 ```bash
 pip install pygame
 ```
