@@ -7,7 +7,8 @@ pip install pygame
 ```
 
 ## Usage
-Run the main.py file
+There are two ways to run the program:
+### 1. Run the main.py file
 
 ### Windows
 ```bash
@@ -17,7 +18,7 @@ python main.py
 ```bash
 python3 main.py
 ```
-
+### 2. Run the executable file
 ## Contributing
 Pull requests are welcome. Please open an issue first to discuss the changes.
 
