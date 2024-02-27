@@ -19,6 +19,18 @@ python main.py
 python3 main.py
 ```
 ### 2. Run the executable file
+
+## Features
+
+- Press L to load saved drawings
+- Press S to save the current drawing
+- Press R to clear the screen
+
+- Press the left mouse button to draw with black color
+- Press the right mouse button to draw with white color/erase
+- Press the middle mouse button to draw with green color
+- Press both mouse buttons to draw with yellow color
+
 ## Contributing
 Pull requests are welcome. Please open an issue first to discuss the changes.
 
