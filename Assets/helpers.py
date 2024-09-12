@@ -1,7 +1,9 @@
-from .Tile import Tile
-from .constants import *
-import pygame
 from .secret_screen import template as colors
+from .constants import WHITE
+from .Tile import Tile
+import numpy as np
+import pygame
+
 
 def draw(win: pygame.Surface, grid: list):
     """Draws the grid and the spots"""
@@ -9,8 +11,9 @@ def draw(win: pygame.Surface, grid: list):
     for row in grid:
         for spot in row:
             spot.draw()
-    
+
     pygame.display.update()
+
 
 def get_pos(pos: tuple, rows: int, width: int):
     """Gets the position of the mouse click"""
@@ -20,9 +23,10 @@ def get_pos(pos: tuple, rows: int, width: int):
     col = x // gap
     return row, col
 
+
 def make_grid(rows: int, width: int, root) -> list:
     """Creates a grid of spots"""
-    import numpy as np
+
     grid = np.empty((rows, rows), dtype=object)
     gap = width // rows
     for i in range(rows):
@@ -31,10 +35,9 @@ def make_grid(rows: int, width: int, root) -> list:
             grid[i, j] = tile
     return list(grid)
 
+
 def save(grid: list):
-    """Saves the grid"""
-    # Grid is two dimensional list of Tile objects and tile.color is a tuple
-    # We will write a two dimensional list that contains the color of the tiles
+    """Saves the grid in the secret_screen file"""
     with open("secret_screen.py", "w") as file:
         file.write("template: list[list[tuple[int, int, int]]] = [\n")
         for i in range(len(grid)):
@@ -44,9 +47,10 @@ def save(grid: list):
             file.write("],\n")
         file.write("]\n")
 
-def load_grid(rows: int, width: int, root: pygame.Surface):
+
+def load_grid(rows: int, width: int, root: pygame.Surface) -> list[Tile]:
     """Loads the grid"""
-    import numpy as np
+
     grid = np.empty((rows, rows), dtype=object)
     gap = width // rows
     for i in range(rows):
