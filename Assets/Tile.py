@@ -1,28 +1,25 @@
-# Make a microsoft paint like application using python
+from .constants import WHITE, GREEN, YELLOW, BLACK, WIDTH, HEIGHT
+from dataclasses import dataclass
 import pygame as pg
-from .helpers import *
-from .constants import *
-
-WIDTH, HEIGHT = 800, 800
 
 
+@dataclass
 class Tile:
-    
-    def __init__(self, row: int, col: int, width: int, root: pg.Surface, color = WHITE):
-        self.row = row
-        self.col = col
-        self.x = row * width
-        self.y = col * width
-        self.color = color
-        self.rect = (self.x, self.y, width, width)
-        self.width = width
 
+    row: int
+    col: int
+    width: int
+    root: pg.Surface
+    color: tuple[int, int, int] = WHITE
 
-        self.root = root
+    def __post_init__(self) -> None:
+        self.x = self.row * self.width
+        self.y = self.col * self.width
+        self.rect = (self.x, self.y, self.width, self.width)
 
     def get_pos(self):
         return self.row, self.col
-    
+
     def fill(self):
         self.color = BLACK
 
